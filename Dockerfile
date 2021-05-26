@@ -1,7 +1,6 @@
-FROM golang:1.13-alpine
+FROM golang:1.16-buster
 
 RUN set -ex \
-    && apk add --no-cache git gcc musl-dev \
     && go get gotest.tools/gotestsum \
     && go get github.com/google/wire/cmd/wire \
-    && go get github.com/derekparker/delve/cmd/dlv
+    && go install github.com/go-delve/delve/cmd/dlv@latest
